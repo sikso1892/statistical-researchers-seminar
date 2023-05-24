@@ -1,0 +1,22 @@
+version: '3'
+services:
+  rserver:
+    image: rocker/rstudio:latest
+    container_name: rserver_with_vscode
+    ports:
+      - 8787:8787
+    volumes:
+      - ./r_data:/home/rstudio/r_data # 호스트와 컨테이너 간 데이터 공유를 위한 볼륨 마운트 설정
+  
+  jupyterlab:
+    container_name: jupyterlab_with_vscode
+    image: jupyter/base-notebook
+    ports:
+      - 8888:8888
+    environment:
+      - JUPYTER_TOKEN=
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - ./assets:/home/jovyan/work/assets
+      - .jupyter:/home/jovyan/.jupyter
+    command: jupyter lab --ip=0.0.0.0 --allow-root
