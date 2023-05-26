@@ -3,6 +3,7 @@ services:
   rserver:
     image: rocker/rstudio:latest
     container_name: rserver_with_vscode
+    tty: true
     ports:
       - 8787:8787
     volumes:
@@ -11,12 +12,15 @@ services:
   jupyterlab:
     container_name: jupyterlab_with_vscode
     image: jupyter/base-notebook
+    tty: true
     ports:
       - 8888:8888
+      - 6006:6006
+      
     environment:
       - JUPYTER_TOKEN=
     volumes:
-      - ./notebooks:/home/jovyan/work
-      - ./assets:/home/jovyan/work/assets
       - .jupyter:/home/jovyan/.jupyter
+      - ./002_IMDB_Movie_Review_Sentiment_Analysis:/home/jovyan/work
+      
     command: jupyter lab --ip=0.0.0.0 --allow-root
