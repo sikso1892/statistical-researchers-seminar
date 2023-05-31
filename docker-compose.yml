@@ -20,7 +20,7 @@ services:
     environment:
       - JUPYTER_TOKEN=
     volumes:
-      - .jupyter:/home/jovyan/.jupyter
-      - ./002_IMDB_Movie_Review_Sentiment_Analysis:/home/jovyan/work
-      
+      - ./.jupyter:/home/jovyan/.jupyter
+      - ./notebooks:/home/jovyan/work
+
     command: jupyter lab --ip=0.0.0.0 --allow-root
