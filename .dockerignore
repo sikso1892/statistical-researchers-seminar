@@ -1,0 +1,9 @@
+temp
+reference
+.git
+.gitignore
+.jupyter
+reference
+temp
+docker-compose.yml
+.DS_Store

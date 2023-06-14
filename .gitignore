@@ -5,6 +5,9 @@
 .ipynb_checkpoints/
 .jupyter
 
+# vscode
+*.code-workspace
+
 # pyenv
 .python-version
 
