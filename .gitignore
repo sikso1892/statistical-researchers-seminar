@@ -5,5 +5,9 @@
 .ipynb_checkpoints/
 .jupyter
 
+# pyenv
+.python-version
+
+# etc
 reference
 temp
