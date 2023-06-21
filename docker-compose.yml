@@ -6,12 +6,17 @@ services:
     tty: true
     ports:
       - 8787:8787
+    environment:
+      - PASSWORD=1111
     volumes:
       - ./r_data:/home/rstudio/r_data # 호스트와 컨테이너 간 데이터 공유를 위한 볼륨 마운트 설정
   
   jupyterlab:
     container_name: jupyterlab_with_vscode
-    image: jupyter/base-notebook
+    image: jupyterlab-base
+    build: 
+      context: 'build'
+      dockerfile: Dockerfile
     tty: true
     ports:
       - 8888:8888
